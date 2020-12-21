@@ -7,5 +7,9 @@ export const catGalleryReducers = createReducer(
   on(CatGalleryActions.GetImages, (state, {limit}) => {
     console.log('get images!');
     return {...state};
+  }),
+  on(CatGalleryActions.ImagesLoaded, (state, {images}) => {
+    console.log(images);
+    return {...state};
   })
 );
