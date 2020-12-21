@@ -1,4 +1,4 @@
-import { HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -18,7 +18,7 @@ export class CatImageService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getImages(imageType?: string, limit?: number): Observable<CatImage[]> {
+  public getImages(imageType?: string, limit?: string): Observable<CatImage[]> {
     const params = new HttpParams().set('mime_types', imageType ? imageType : this.DEFAULT_IMAGE_TYPE)
     .set('limit', limit ? limit : this.DEFAULT_LIMIT);
 
