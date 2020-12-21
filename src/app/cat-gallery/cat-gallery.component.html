@@ -1,2 +1,4 @@
 <span>cat gallery works!</span>
-<span>{{images$ | async | json}}</span>
+<ng-container *ngIf="images$ | async as images">
+  <span>{{images | json}}</span>
+</ng-container>
