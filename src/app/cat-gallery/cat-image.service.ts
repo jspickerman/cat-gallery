@@ -1,14 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
-export interface CatImage {
-  breeds: string[];
-  id: string;
-  url: string;
-  width: string;
-  height: string;
-}
+import { CatImage } from '../state/cat-gallery.state';
 
 @Injectable()
 export class CatImageService {
