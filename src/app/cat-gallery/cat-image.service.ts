@@ -12,18 +12,16 @@ export interface CatImage {
 
 @Injectable()
 export class CatImageService {
-  httpClient: HttpClient;
-
   IMAGE_ENDPOINT: string = 'api.thecatapi.com/v1/images/search';
   DEFAULT_IMAGE_TYPE: string = 'image';
   DEFAULT_LIMIT: string = "1";
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   public getImages(imageType?: string, limit?: number): Observable<CatImage[]> {
     const params = new HttpParams().set('mime_types', imageType ? imageType : this.DEFAULT_IMAGE_TYPE)
     .set('limit', limit ? limit : this.DEFAULT_LIMIT);
 
-    return this.httpClient.get(<CatImage[])>(this.IMAGE_ENDPOINT + params);
+    return this.httpClient.get<CatImage[]>(this.IMAGE_ENDPOINT + params);
   }
 }
