@@ -9,4 +9,4 @@ export const GetImages = createAction(
 export const ImagesLoaded = createAction(
   '[Cat Gallery] Images Loaded',
   props<{images: CatImageData[]}>()
-)
+) 
