@@ -13,7 +13,7 @@ export interface CatImageData {
 }
 
 export interface CatGalleryState {
-  images: CatImage[];
+  images: CatImageData[];
 }
 
 export const initialCatGalleryState: CatGalleryState = {

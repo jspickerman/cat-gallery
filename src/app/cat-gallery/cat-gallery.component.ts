@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { CatGalleryState } from '../state/cat-gallery.state';
+import * as CatGalleryActions from '../state/cat-gallery.actions'
 
 @Component({
   selector: 'app-cat-gallery',
@@ -7,9 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatGalleryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<CatGalleryState>) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.store.dispatch(CatGalleryActions.GetImages({imageType: 'gif', limit: "10"}));
   }
-
 }
