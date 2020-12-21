@@ -12,6 +12,7 @@ export interface CatImage {
 
 @Injectable()
 export class CatImageService {
+  httpClient: HttpClient;
 
   IMAGE_ENDPOINT: string = 'api.thecatapi.com/v1/images/search';
   DEFAULT_IMAGE_TYPE: string = 'image';
@@ -23,6 +24,6 @@ export class CatImageService {
     const params = new HttpParams().set('mime_types', imageType ? imageType : this.DEFAULT_IMAGE_TYPE)
     .set('limit', limit ? limit : this.DEFAULT_LIMIT);
 
+    return this.httpClient.get(<CatImage[])>(this.IMAGE_ENDPOINT + params);
   }
-
 }
