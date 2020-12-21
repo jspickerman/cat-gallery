@@ -10,9 +10,10 @@ import { CatGalleryItemComponent } from './cat-gallery/cat-gallery-item/cat-gall
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { catGalleryReducers } from './state/cat-gallery.reducers';
+import {CatGalleryEffects} from './state/cat-gallery.effects';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, StoreModule.forRoot({'catgallery': catGalleryReducers}), EffectsModule.forRoot([])],
+  imports: [BrowserModule, FormsModule, StoreModule.forRoot({'catgallery': catGalleryReducers}), EffectsModule.forRoot([CatGalleryEffects])],
   declarations: [ AppComponent, HelloComponent, CatGalleryComponent, CatGalleryItemComponent ],
   bootstrap:    [ AppComponent ],
   providers: [CatImageService]
