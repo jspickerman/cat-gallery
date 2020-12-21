@@ -10,6 +10,8 @@ import * as CatGalleryActions from '../state/cat-gallery.actions'
 })
 export class CatGalleryComponent implements OnInit {
 
+  catImages$ = this.store.select('images');
+
   constructor(private store: Store<CatGalleryState>) { }
 
   ngOnInit(): void {
