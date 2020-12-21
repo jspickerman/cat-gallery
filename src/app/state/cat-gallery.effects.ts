@@ -10,7 +10,7 @@ export class CatGalleryEffects {
   loadStates$ = createEffect(() => this.actions$.pipe(
     ofType(CatGalleryActions.GetImages),
     mergeMap(() => this.catImageService.getImages()
-      pipe(
+      .pipe(
         map(response => CatGalleryActions.ImagesLoaded({images: response})),
         catchError(() => EMPTY)
       )

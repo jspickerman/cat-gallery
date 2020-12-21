@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CatImage } from '../state/cat-gallery.state';
+import { CatImageData } from '../state/cat-gallery.state';
 
 @Injectable()
 export class CatImageService {
@@ -15,6 +15,6 @@ export class CatImageService {
     const params = new HttpParams().set('mime_types', imageType ? imageType : this.DEFAULT_IMAGE_TYPE)
     .set('limit', limit ? limit : this.DEFAULT_LIMIT);
 
-    return this.httpClient.get<CatImage[]>(this.IMAGE_ENDPOINT + params);
+    return this.httpClient.get<CatImageData[]>(this.IMAGE_ENDPOINT + params);
   }
 }
