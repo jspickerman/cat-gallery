@@ -12,6 +12,7 @@ export class CatImageService {
   constructor(private httpClient: HttpClient) { }
 
   public getImages(imageType?: string, limit?: string) {
+    console.log('yeet!');
     const params = new HttpParams().set('mime_types', imageType ? imageType : this.DEFAULT_IMAGE_TYPE)
     .set('limit', limit ? limit : this.DEFAULT_LIMIT);
 
