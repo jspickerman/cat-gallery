@@ -11,11 +11,13 @@ import { images } from '../state/cat-gallery.selectors';
 })
 export class CatGalleryComponent implements OnInit {
 
+  DEFAULT_IMAGE_TYPES: string = 'gif,png,jpg';
+  DEFAULT_LIMIT: string = "25";
   images$ = this.store.select(images);
 
   constructor(private store: Store<CatGalleryState>) { }
 
   ngOnInit(): void {
-    this.store.dispatch(CatGalleryActions.GetImages({imageType: 'gif', limit: "10"}));
+    this.store.dispatch(CatGalleryActions.GetImages({imageType: this.DEFAULT_IMAGE_TYPES, limit: this.DEFAULT_LIMIT}));
   }
 }
