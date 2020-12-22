@@ -8,7 +8,12 @@ export const catGalleryReducers = createReducer(
     console.log('get images!');
     return {...state};
   }),
-  on(CatGalleryActions.ImagesLoaded, (state) => {
+  on(CatGalleryActions.ImagesLoaded, (state, {imageData}) => {
+    const images = {
+      pending: false,
+      error: '',
+      images: imageData[0]
+    }
     return {...state}
   })
 );

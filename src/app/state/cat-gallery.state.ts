@@ -17,5 +17,9 @@ export interface CatGalleryState {
 }
 
 export const initialCatGalleryState: CatGalleryState = {
-  images: []
+  images: {
+    pending: false,
+    error: '',
+    images: []
+  }
 }
