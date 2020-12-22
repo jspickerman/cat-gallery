@@ -1,4 +1,6 @@
 <span>cat gallery works!</span>
 <div class="gallery" *ngIf="images$ | async as imageData">
-  <app-cat-gallery-item *ngFor="let image of imageData.images" [image]="image"></app-cat-gallery-item>
+  <div *ngFor="let image of imageData.images" class="gallery-item">
+    <app-cat-gallery-item [image]="image"></app-cat-gallery-item>
+  </div>
 </div>

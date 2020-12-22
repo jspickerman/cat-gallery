@@ -3,3 +3,7 @@
   flex-wrap: wrap;
   align-items: center;
 }
+
+.gallery-item {
+  margin: .5em;
+}
