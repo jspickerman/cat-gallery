@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { CatGalleryState } from '../state/cat-gallery.state';
 import * as CatGalleryActions from '../state/cat-gallery.actions'
+import { images } from '../state/cat-gallery.selectors';
 
 @Component({
   selector: 'app-cat-gallery',
@@ -10,7 +11,7 @@ import * as CatGalleryActions from '../state/cat-gallery.actions'
 })
 export class CatGalleryComponent implements OnInit {
 
-  images$ = this.store.select('images');
+  images$ = this.store.select(images);
 
   constructor(private store: Store<CatGalleryState>) { }
 
