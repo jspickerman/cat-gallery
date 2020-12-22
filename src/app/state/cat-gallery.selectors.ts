@@ -5,5 +5,8 @@ export const selectCatGalleryState = createFeatureSelector<CatGalleryState>('cat
 
 export const images = createSelector(
   selectCatGalleryState,
-  (state: CatGalleryState) => state.images
+  (state: CatGalleryState) => {
+    console.log('select images!');
+    return state.images;
+  }
 )
