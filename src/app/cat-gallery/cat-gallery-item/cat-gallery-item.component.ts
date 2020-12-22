@@ -14,10 +14,5 @@ export class CatGalleryItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('yo!');
-  }
-
-  ngOnChanges() {
-    console.log(this.image);
   }
 }
