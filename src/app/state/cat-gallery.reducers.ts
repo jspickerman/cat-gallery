@@ -13,7 +13,8 @@ export const catGalleryReducers = createReducer(
       pending: false,
       error: '',
       images: imageData[0]
-    }
+    };
+    console.log(images);
     return {...state}
   })
 );
