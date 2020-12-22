@@ -5,21 +5,21 @@ import * as CatGalleryActions from "./cat-gallery.actions";
 export const catGalleryReducers = createReducer(
   initialCatGalleryState,
   on(CatGalleryActions.GetImages, (state, {limit}) => {
-    const images = {
+    const imageData = {
       pending: true,
       error: '',
       images: []
     }
-    console.log(images);
-    return {...state, images};
+    console.log(imageData);
+    return {...state, imageData};
   }),
-  on(CatGalleryActions.ImagesLoaded, (state, {imageData}) => {
-    const images = {
+  on(CatGalleryActions.ImagesLoaded, (state, {imageResponse}) => {
+    const imageData = {
       pending: false,
       error: '',
-      images: imageData
+      images: imageResponse
     };
-    console.log(images);
-    return {...state}
+    console.log(imageData);
+    return {...state, imageData}
   })
 );

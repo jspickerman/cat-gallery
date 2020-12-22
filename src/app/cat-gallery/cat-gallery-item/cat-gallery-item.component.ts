@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CatImage } from '../../state/cat-gallery.state';
 
 @Component({
   selector: 'app-cat-gallery-item',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatGalleryItemComponent implements OnInit {
 
+  @Input()
+  image: CatImage
+
   constructor() { }
 
   ngOnInit() {
+    console.log('yo!');
   }
 
+  ngOnChanges() {
+    console.log(this.image);
+  }
 }

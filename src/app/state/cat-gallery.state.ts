@@ -13,11 +13,11 @@ export interface CatImageData {
 }
 
 export interface CatGalleryState {
-  images: CatImageData;
+  imageData: CatImageData;
 }
 
 export const initialCatGalleryState: CatGalleryState = {
-  images: {
+  imageData: {
     pending: false,
     error: '',
     images: []
