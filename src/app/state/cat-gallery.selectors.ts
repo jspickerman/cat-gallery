@@ -7,6 +7,6 @@ export const images = createSelector(
   selectCatGalleryState,
   (state: CatGalleryState) => {
     console.log('select images!');
-    return state.images;
+    return state.imageData;
   }
 )
