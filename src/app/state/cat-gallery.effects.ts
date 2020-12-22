@@ -11,7 +11,7 @@ export class CatGalleryEffects {
     ofType(CatGalleryActions.GetImages),
     mergeMap((action) => this.catImageService.getImages(action.imageType, action.limit)
       .pipe(
-        map(response => CatGalleryActions.ImagesLoaded({images: response})),
+        map(response => CatGalleryActions.ImagesLoaded({imageData: response})),
         catchError(() => EMPTY)
       )
     )
