@@ -11,7 +11,6 @@ export const images = createSelector(
       return state.currentImageTypes.includes(fileType);
     });
     console.log(images);
-    const imageData = {...state.imageData, images};
-    return {...state, imageData};
+    return {...state.imageData, images};
   }
 )
