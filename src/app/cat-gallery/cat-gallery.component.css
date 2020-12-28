@@ -1,7 +1,8 @@
 .gallery {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  column-gap: 5px;
+  justify-content: center;
 }
 
 .gallery-item {
