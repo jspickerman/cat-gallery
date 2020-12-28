@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { CatGalleryState } from '../../state/cat-gallery.state';
+import { CatGalleryState, GalleryImageFilter } from '../../state/cat-gallery.state';
 import * as CatGalleryActions from '../../state/cat-gallery.actions';
 
 @Component({
@@ -9,6 +9,9 @@ import * as CatGalleryActions from '../../state/cat-gallery.actions';
   styleUrls: ['./cat-gallery-filters.component.css']
 })
 export class CatGalleryFiltersComponent implements OnInit {
+
+  @Input()
+  filters: GalleryImageFilter[];
 
   constructor(private store: Store<CatGalleryState>) { }
 

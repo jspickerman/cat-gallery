@@ -9,3 +9,10 @@ export const images = createSelector(
     return state.imageData;
   }
 )
+
+export const filters = createSelector(
+  selectCatGalleryState,
+  (state: CatGalleryState) => {
+    return state.imageFilters;
+  }
+)

@@ -1,5 +1,7 @@
 <div>
-  <app-cat-gallery-filters></app-cat-gallery-filters>
+  <ng-container *ngIf="filters$ | async as filters">
+    <app-cat-gallery-filters [filters]=""></app-cat-gallery-filters>
+  </ng-container>
 
   <div class="gallery" *ngIf="images$ | async as imageData">
     <div *ngFor="let image of imageData.images" class="gallery-item">

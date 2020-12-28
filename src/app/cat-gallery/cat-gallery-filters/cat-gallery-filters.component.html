@@ -1,4 +1,4 @@
-<div class="filter-container">
+<div class="filter-container" *ngFor="let filter of filters">
   <button class="btn filter-btn" (click)="filterGIF()">GIF</button>
   <button class="btn filter-btn" (click)="filterPNG()">PNG</button>
   <button class="btn filter-btn" (click)="filterJPG()">JPG</button>
