@@ -18,13 +18,26 @@ export const catGalleryReducers = createReducer(
       error: '',
       images: imageResponse
     };
-    console.log(imageData);
     return {...state, imageData}
   }),
   on(CatGalleryActions.FilterGIF, (state) => {
     const images = state.imageData.images.filter((image) => {
       const fileExtension = image.url.substring(image.url.length - 3);
       return fileExtension === IMAGE_TYPE.GIF;
+    });
+    return {...state, imageData: {...state.imageData, images}};
+  }),
+    on(CatGalleryActions.FilterJPG, (state) => {
+    const images = state.imageData.images.filter((image) => {
+      const fileExtension = image.url.substring(image.url.length - 3);
+      return fileExtension === IMAGE_TYPE.JPG;
+    });
+    return {...state, imageData: {...state.imageData, images}};
+  }),
+  on(CatGalleryActions.FilterPNG, (state) => {
+    const images = state.imageData.images.filter((image) => {
+      const fileExtension = image.url.substring(image.url.length - 3);
+      return fileExtension === IMAGE_TYPE.PNG;
     });
     return {...state, imageData: {...state.imageData, images}};
   })

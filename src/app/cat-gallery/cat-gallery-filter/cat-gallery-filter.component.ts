@@ -15,7 +15,15 @@ export class CatGalleryFilterComponent implements OnInit {
   ngOnInit() {
   }
 
-  filterGif(): void {
-    this.store.dispatch(CatGalleryActions.FilterGIF);
+  filterGIF(): void {
+    this.store.dispatch(CatGalleryActions.FilterGIF());
+  }
+
+  filterJPG(): void {
+    this.store.dispatch(CatGalleryActions.FilterJPG());
+  }
+
+    filterPNG(): void {
+    this.store.dispatch(CatGalleryActions.FilterPNG());
   }
 }
