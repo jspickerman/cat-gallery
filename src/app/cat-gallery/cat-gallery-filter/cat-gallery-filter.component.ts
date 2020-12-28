@@ -16,6 +16,6 @@ export class CatGalleryFilterComponent implements OnInit {
   }
 
   filterGif(): void {
-    this.store.dispatch(CatGalleryActions.ImagesLoaded);
+    this.store.dispatch(CatGalleryActions.FilterGIF);
   }
 }

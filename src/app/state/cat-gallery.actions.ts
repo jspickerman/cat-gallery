@@ -11,15 +11,15 @@ export const ImagesLoaded = createAction(
   props<{imageResponse: CatImageData[]}>()
 );
 
-// export const FilterGIF = createAction( 
-//   '[Cat Gallery] Filter to GIfs'
-// );
+export const FilterGIF = createAction( 
+  '[Cat Gallery] Filter to GIfs'
+);
 
-// export const FilterJPG = createAction(
-//   '[Cat Gallery] Filter to JPGs'
-// );
+export const FilterJPG = createAction(
+  '[Cat Gallery] Filter to JPGs'
+);
 
-// export const FilterPNG = createAction(
-//   '[Cat Gallery] Filter to PNGs'
-// );
+export const FilterPNG = createAction(
+  '[Cat Gallery] Filter to PNGs'
+);
 
