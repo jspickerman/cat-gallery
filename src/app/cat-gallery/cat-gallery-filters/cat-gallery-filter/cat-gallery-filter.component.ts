@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { GalleryImageFilter } from '../../../state/cat-gallery.state';
+import { Store } from '@ngrx/store';
+import { CatGalleryState, GalleryImageFilter } from '../../../state/cat-gallery.state';
+import * as CatGalleryActions from '../../../state/cat-gallery.actions';
+
 
 @Component({
   selector: 'app-cat-gallery-filter',
@@ -11,9 +14,12 @@ export class CatGalleryFilterComponent implements OnInit {
   @Input()
   filter: GalleryImageFilter;
 
-  constructor() { }
+  constructor(private store: Store<CatGalleryState>) { }
 
   ngOnInit() {
   }
 
+  toggle(): void {
+    this.store.dispatch(CatGalleryActions.ToggleFilter({filter: this.filter, selected: !this.filter.selected}))
+  }
 }
