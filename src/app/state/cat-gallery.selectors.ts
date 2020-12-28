@@ -10,6 +10,18 @@ export const images = createSelector(
   }
 )
 
+export const filteredImages = createSelector(
+  selectCatGalleryState,
+  (state: CatGalleryState) => {
+    const selectedFilters = state.imageFilters.filter(currentFilter => currentFilter.selected);
+    return state.imageData.images.filter((currentImage) => {
+      const imageExtension = currentImage.url.substring(currentImage.url.length - 3);
+      console.log(imageExtension);
+      return selectedFilters.find(filter => filter.imageType === imageExtension);
+    });
+  }
+)
+
 export const filters = createSelector(
   selectCatGalleryState,
   (state: CatGalleryState) => {
