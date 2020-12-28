@@ -20,8 +20,9 @@ export const catGalleryReducers = createReducer(
     };
     return {...state, imageData}
   }),
-  on(CatGalleryActions.ToggleFilter, (state, {filter}) => {
-    console.log(filter);
+  on(CatGalleryActions.ToggleFilter, (state, {filter, selected}) => {
+    const updatedFilter = state.imageFilters.find(currentFilter => currentFilter.imageType === filter.imageType);
+    
     return {...state};
   })
 );
