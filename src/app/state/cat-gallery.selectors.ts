@@ -6,11 +6,6 @@ export const selectCatGalleryState = createFeatureSelector<CatGalleryState>('cat
 export const images = createSelector(
   selectCatGalleryState,
   (state: CatGalleryState) => {
-    const images = state.imageData.images.filter((image) => {
-      const fileType: IMAGE_TYPE = image.url.substring(image.url.length - 3) as IMAGE_TYPE;
-      return state.currentImageTypes.includes(fileType);
-    });
-    console.log(images);
-    return {...state.imageData, images};
+    return state.imageData;
   }
 )

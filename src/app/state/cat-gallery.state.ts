@@ -12,6 +12,11 @@ export interface CatImageData {
   images: CatImage[];
 }
 
+export interface ImageFilter {
+  imageType: IMAGE_TYPE;
+  selected: boolean;
+}
+
 export enum IMAGE_TYPE {
   GIF = 'gif',
   PNG = 'png',
@@ -19,12 +24,12 @@ export enum IMAGE_TYPE {
 }
 
 export interface CatGalleryState {
-  currentImageTypes: IMAGE_TYPE[];
+  imageFilters: ImageFilter[];
   imageData: CatImageData;
 }
 
 export const initialCatGalleryState: CatGalleryState = {
-  currentImageTypes: [IMAGE_TYPE.GIF, IMAGE_TYPE.JPG, IMAGE_TYPE.PNG],
+  imageFilters: [],
   imageData: {
     pending: false,
     error: '',
