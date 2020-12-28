@@ -9,4 +9,17 @@ export const GetImages = createAction(
 export const ImagesLoaded = createAction(
   '[Cat Gallery] Images Loaded',
   props<{imageResponse: CatImageData[]}>()
-) 
+)
+
+export const FilterGIF = createAction( 
+  '[Cat Gallery] Filter to GIfs'
+)
+
+export const FilterJPG = createAction(
+  '[Cat Gallery] Filter to JPGs'
+)
+
+export const FilterPNG = createAction(
+  '[Cat Gallery] Filter to PNGs'
+)
+
