@@ -12,7 +12,7 @@ import { filteredImages, filters, images } from '../state/cat-gallery.selectors'
 export class CatGalleryComponent implements OnInit {
 
   DEFAULT_IMAGE_TYPES: string = 'gif,png,jpg';
-  DEFAULT_LIMIT: string = "25";
+  DEFAULT_LIMIT: string = "50";
 
   images$ = this.store.select(filteredImages);
   filters$ = this.store.select(filters);
@@ -20,6 +20,6 @@ export class CatGalleryComponent implements OnInit {
   constructor(private store: Store<CatGalleryState>) { }
 
   ngOnInit(): void {
-    this.store.dispatch(CatGalleryActions.GetImages({imageType: this.DEFAULT_IMAGE_TYPES, limit: this.DEFAULT_LIMIT}));
+    this.store.dispatch(CatGalleryActions.GetImages({limit: this.DEFAULT_LIMIT}));
   }
 }

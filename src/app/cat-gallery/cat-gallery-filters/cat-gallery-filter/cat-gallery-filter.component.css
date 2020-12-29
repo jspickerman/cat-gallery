@@ -1,12 +1,16 @@
 .filter-btn {
   font-size: 16px;
-  background-color: #713e8a;
-}
+  background-color: #fff;
+  color: #713e8a;
+  border: 1px solid #713e8a;
 
-.active {
-  background-color: #713e8a;
-  color: #fff;
-  border: none;
   border-radius: 25px;
   padding: .5em 1em;
+  outline: none;
+}
+
+.filter-btn.active {
+  background-color: #713e8a;
+  color: #fff;
+  border-color: #713e8a;
 }
