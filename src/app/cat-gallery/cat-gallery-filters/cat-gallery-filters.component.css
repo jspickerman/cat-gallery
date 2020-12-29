@@ -1,4 +1,8 @@
-.filter-container {
+.filter-row {
   display: flex;
   align-items: center;
+}
+
+.filter-container {
+  margin: 0 .5em;
 }
