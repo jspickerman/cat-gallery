@@ -1,5 +1,5 @@
 <div class="filter-row">
-  <div class="filter-container">
-    <app-cat-gallery-filter *ngFor="let filter of filters" [filter]="filter"></app-cat-gallery-filter>
+  <div class="filter-container" *ngFor="let filter of filters" >
+    <app-cat-gallery-filter [filter]="filter"></app-cat-gallery-filter>
   </div>
 </div>
