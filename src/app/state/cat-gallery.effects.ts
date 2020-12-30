@@ -36,6 +36,7 @@ export class CatGalleryEffects {
     withLatestFrom(this.store.select(filters)),
     mergeMap(([action, filters]) => this.catImageService.getImages(
       filters.reduce((imageTypes, currentFilter, index, array) => {
+        console.log('add!');
         if (currentFilter.selected) {
           if (index !== 0 && index + 1 <= array.length) {
             imageTypes += ',';

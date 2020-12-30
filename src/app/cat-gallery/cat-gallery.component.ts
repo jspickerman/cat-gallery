@@ -26,4 +26,8 @@ export class CatGalleryComponent implements OnInit {
   getImages(): void {
     this.store.dispatch(CatGalleryActions.GetImages({limit: this.DEFAULT_LIMIT}));
   }
+
+  addImages(): void {
+    this.store.dispatch(CatGalleryActions.AddImages({limit: this.DEFAULT_LIMIT}));
+  }
 }

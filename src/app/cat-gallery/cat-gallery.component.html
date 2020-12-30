@@ -1,6 +1,7 @@
 <div>
   <div class="filters" *ngIf="filters$ | async as filters">
     <app-cat-gallery-filters [filters]="filters"></app-cat-gallery-filters>
+    <button class="btn">Shuffle!</button>
   </div>
 
   <div class="gallery" *ngIf="images$ | async as imageData">
@@ -10,7 +11,7 @@
   </div>
 
   <div class="gallery-buttons">
-    <button class="btn" (click)="getImages()">Load More</button>
+    <button class="btn" (click)="addImages()">Load More</button>
   </div>
 <div>
 
