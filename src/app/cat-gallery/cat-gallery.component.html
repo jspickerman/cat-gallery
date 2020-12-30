@@ -1,6 +1,8 @@
 <div>
-  <div class="filters" *ngIf="filters$ | async as filters">
-    <app-cat-gallery-filters [filters]="filters"></app-cat-gallery-filters>
+  <div class="toollbar">
+    <ng-container *ngIf="filters$ | async as filters">
+        <app-cat-gallery-filters [filters]="filters"></app-cat-gallery-filters>
+    </ng-container>
     <button class="btn">Shuffle!</button>
   </div>
 
