@@ -18,7 +18,7 @@ export class CatGalleryEffects {
         console.log('yeet!');
         console.log(currentFilter);
         if (currentFilter.selected) {
-          if (index !== 0 && index + 1 !== array.length) {
+          if (index !== 0 && index + 1 <= array.length) {
             imageTypes += ',';
           }
           imageTypes+= currentFilter.imageType;

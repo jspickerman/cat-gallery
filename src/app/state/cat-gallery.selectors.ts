@@ -16,10 +16,8 @@ export const filteredImages = createSelector(
     const selectedFilters = state.imageFilters.filter(currentFilter => currentFilter.selected);
     const filteredImages = state.imageData.images.filter((currentImage) => {
       const imageExtension = currentImage.url.substring(currentImage.url.length - 3);
-      console.log(imageExtension);
       return selectedFilters.find(filter => filter.imageType === imageExtension);
     });
-    console.log(filteredImages);
     return {...state, images: filteredImages};
   }
 )
