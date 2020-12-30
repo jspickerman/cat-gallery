@@ -12,3 +12,10 @@
 .gallery-item {
   margin: .5em;
 }
+
+.gallery-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

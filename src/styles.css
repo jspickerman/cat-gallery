@@ -1,1 +1,20 @@
-/* Add application styles & imports to this file! */
+.btn {
+  font-size: 16px;
+  background-color: #fff;
+  color: #713e8a;
+  border: 1px solid #713e8a;
+
+  border-radius: 25px;
+  padding: .5em 1em;
+  outline: none;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn.active, btn:active, btn:focus {
+  background-color: #713e8a;
+  color: #fff;
+  border-color: #713e8a;
+}
