@@ -31,8 +31,8 @@ export interface CatGalleryState {
 export const initialCatGalleryState: CatGalleryState = {
   imageFilters: [
     {imageType: IMAGE_TYPE.GIF, selected: true},
-    {imageType: IMAGE_TYPE.JPG, selected: true},
-    {imageType: IMAGE_TYPE.PNG, selected: true}
+    {imageType: IMAGE_TYPE.JPG, selected: false},
+    {imageType: IMAGE_TYPE.PNG, selected: false}
   ],
   imageData: {
     pending: false,

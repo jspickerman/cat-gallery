@@ -20,10 +20,10 @@ export class CatGalleryComponent implements OnInit {
   constructor(private store: Store<CatGalleryState>) { }
 
   ngOnInit(): void {
-    this.getImages();
+    this.loadImages();
   }
 
-  getImages(): void {
+  loadImages(): void {
     this.store.dispatch(CatGalleryActions.GetImages({limit: this.DEFAULT_LIMIT}));
   }
 
