@@ -13,7 +13,7 @@
   cursor: pointer;
 }
 
-.btn.active, btn:active, btn:focus {
+.btn.active, .btn:active {
   background-color: #713e8a;
   color: #fff;
   border-color: #713e8a;

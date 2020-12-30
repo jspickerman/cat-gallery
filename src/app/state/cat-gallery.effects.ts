@@ -10,25 +10,43 @@ import { CatGalleryState } from "./cat-gallery.state";
 
 @Injectable()
 export class CatGalleryEffects {
-  loadStates$ = createEffect(() => this.actions$.pipe(
+  loadImages$ = createEffect(() => this.actions$.pipe(
     ofType(CatGalleryActions.GetImages),
     withLatestFrom(this.store.select(filters)),
     mergeMap(([action, filters]) => this.catImageService.getImages(
       filters.reduce((imageTypes, currentFilter, index, array) => {
-        console.log('yeet!');
-        console.log(currentFilter);
         if (currentFilter.selected) {
           if (index !== 0 && index + 1 <= array.length) {
             imageTypes += ',';
           }
           imageTypes+= currentFilter.imageType;
         };
-        console.log(imageTypes);
         return imageTypes;
       }, ''),
       action.limit)
       .pipe(
         map(response => CatGalleryActions.ImagesLoaded({imageResponse: response})),
+        catchError(() => EMPTY)
+      )
+    )
+  ));
+
+  addImages$ = createEffect(() => this.actions$.pipe(
+    ofType(CatGalleryActions.AddImages),
+    withLatestFrom(this.store.select(filters)),
+    mergeMap(([action, filters]) => this.catImageService.getImages(
+      filters.reduce((imageTypes, currentFilter, index, array) => {
+        if (currentFilter.selected) {
+          if (index !== 0 && index + 1 <= array.length) {
+            imageTypes += ',';
+          }
+          imageTypes+= currentFilter.imageType;
+        };
+        return imageTypes;
+      }, ''),
+      action.limit)
+      .pipe(
+        map(response => CatGalleryActions.ImagesAdded({imageResponse: response})),
         catchError(() => EMPTY)
       )
     )

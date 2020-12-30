@@ -6,8 +6,18 @@ export const GetImages = createAction(
   props<{limit: string}>()
 );
 
+export const AddImages = createAction(
+  '[Cat Gallery] Add Images',
+  props<{limit: string}>()
+);
+
 export const ImagesLoaded = createAction(
   '[Cat Gallery] Images Loaded',
+  props<{imageResponse: CatImageData[]}>()
+);
+
+export const ImagesAdded = createAction(
+  '[Cat Gallery] Images Added',
   props<{imageResponse: CatImageData[]}>()
 );
 

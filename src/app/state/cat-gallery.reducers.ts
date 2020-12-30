@@ -20,6 +20,14 @@ export const catGalleryReducers = createReducer(
     };
     return {...state, imageData}
   }),
+  on(CatGalleryActions.ImagesAdded, (state, {imageResponse}) => {
+    const imageData = {
+      pending: false,
+      error: '',
+      images: [...state.imageData.images, ...imageResponse]
+    };
+    return {...state, imageData}
+  }),
   on(CatGalleryActions.ToggleFilter, (state, {filter, selected}) => {
     const newFilter = {...filter, selected};
     const imageFilters = state.imageFilters.map(currentFilter => currentFilter.imageType === newFilter.imageType ? newFilter : currentFilter);
