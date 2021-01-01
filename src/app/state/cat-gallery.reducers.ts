@@ -26,7 +26,6 @@ export const catGalleryReducers = createReducer(
       error: '',
       images: [...state.imageData.images, ...imageResponse]
     };
-    console.log(imageData);
     return {...state, imageData}
   }),
   on(CatGalleryActions.ToggleFilter, (state, {filter, selected}) => {

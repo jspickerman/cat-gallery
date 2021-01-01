@@ -11,7 +11,6 @@ import { filteredImages, filters, images } from '../state/cat-gallery.selectors'
 })
 export class CatGalleryComponent implements OnInit {
 
-  DEFAULT_IMAGE_TYPES: string = 'gif,png,jpg';
   DEFAULT_LIMIT: string = "25";
 
   images$ = this.store.select(filteredImages);

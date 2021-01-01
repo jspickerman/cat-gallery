@@ -6,24 +6,27 @@ import { catchError, map, mergeMap, withLatestFrom } from "rxjs/operators";
 import { CatImageService } from "../cat-gallery/cat-image.service";
 import * as CatGalleryActions from "./cat-gallery.actions";
 import { filters } from "./cat-gallery.selectors";
-import { CatGalleryState } from "./cat-gallery.state";
+import { CatGalleryState, GalleryImageFilter } from "./cat-gallery.state";
 
 @Injectable()
 export class CatGalleryEffects {
-  loadImages$ = createEffect(() => this.actions$.pipe(
+
+  private getSelectedImageTypes(filters: GalleryImageFilter[]): string {
+    return filters.reduce((imageTypes, currentFilter, index, array) => {
+      if (currentFilter.selected) {
+        if (index !== 0 && index + 1 <= array.length) {
+          imageTypes += ',';
+        }
+        imageTypes+= currentFilter.imageType;
+      };
+      return imageTypes;
+    }, '');
+  };
+
+  public loadImages$ = createEffect(() => this.actions$.pipe(
     ofType(CatGalleryActions.GetImages),
     withLatestFrom(this.store.select(filters)),
-    mergeMap(([action, filters]) => this.catImageService.getImages(
-      filters.reduce((imageTypes, currentFilter, index, array) => {
-        if (currentFilter.selected) {
-          if (index !== 0 && index + 1 <= array.length) {
-            imageTypes += ',';
-          }
-          imageTypes+= currentFilter.imageType;
-        };
-        return imageTypes;
-      }, ''),
-      action.limit)
+    mergeMap(([action, filters]) => this.catImageService.getImages(this.getSelectedImageTypes(filters), action.limit)
       .pipe(
         map(response => CatGalleryActions.ImagesLoaded({imageResponse: response})),
         catchError(() => EMPTY)
@@ -31,21 +34,10 @@ export class CatGalleryEffects {
     )
   ));
 
-  addImages$ = createEffect(() => this.actions$.pipe(
+  public addImages$ = createEffect(() => this.actions$.pipe(
     ofType(CatGalleryActions.AddImages),
     withLatestFrom(this.store.select(filters)),
-    mergeMap(([action, filters]) => this.catImageService.getImages(
-      filters.reduce((imageTypes, currentFilter, index, array) => {
-        console.log('add!');
-        if (currentFilter.selected) {
-          if (index !== 0 && index + 1 <= array.length) {
-            imageTypes += ',';
-          }
-          imageTypes+= currentFilter.imageType;
-        };
-        return imageTypes;
-      }, ''),
-      action.limit)
+    mergeMap(([action, filters]) => this.catImageService.getImages(this.getSelectedImageTypes(filters), action.limit)
       .pipe(
         map(response => CatGalleryActions.ImagesAdded({imageResponse: response})),
         catchError(() => EMPTY)

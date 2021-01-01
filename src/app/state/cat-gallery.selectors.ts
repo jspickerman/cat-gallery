@@ -10,6 +10,13 @@ export const images = createSelector(
   }
 )
 
+export const filters = createSelector(
+  selectCatGalleryState,
+  (state: CatGalleryState) => {
+    return state.imageFilters;
+  }
+)
+
 export const filteredImages = createSelector(
   selectCatGalleryState,
   (state: CatGalleryState) => {
@@ -19,12 +26,5 @@ export const filteredImages = createSelector(
       return selectedFilters.find(filter => filter.imageType === imageExtension);
     });
     return {...state, images: filteredImages};
-  }
-)
-
-export const filters = createSelector(
-  selectCatGalleryState,
-  (state: CatGalleryState) => {
-    return state.imageFilters;
   }
 )
