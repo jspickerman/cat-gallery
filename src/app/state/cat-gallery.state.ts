@@ -18,9 +18,9 @@ export interface GalleryImageFilter {
 }
 
 export enum IMAGE_TYPE {
-  GIF = 'gif',
-  PNG = 'png',
-  JPG = 'jpg'
+  GIF = "gif",
+  PNG = "png",
+  JPG = "jpg"
 }
 
 export interface CatGalleryState {
@@ -30,13 +30,13 @@ export interface CatGalleryState {
 
 export const initialCatGalleryState: CatGalleryState = {
   imageFilters: [
-    {imageType: IMAGE_TYPE.GIF, selected: true},
-    {imageType: IMAGE_TYPE.JPG, selected: false},
-    {imageType: IMAGE_TYPE.PNG, selected: false}
+    { imageType: IMAGE_TYPE.GIF, selected: true },
+    { imageType: IMAGE_TYPE.JPG, selected: false },
+    { imageType: IMAGE_TYPE.PNG, selected: false }
   ],
   imageData: {
     pending: false,
-    error: '',
+    error: "",
     images: []
   }
-}
+};
