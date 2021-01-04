@@ -22,9 +22,11 @@
   margin: .5em;
 }
 
-.gallery-buttons {
+.button-group {
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 100%;
+}
+
+.button-group div, .button-group button {
+  margin: 0 .25em;
 }
