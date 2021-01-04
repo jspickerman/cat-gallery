@@ -30,3 +30,9 @@
 .button-group div, .button-group button {
   margin: 0 .25em;
 }
+
+.gallery-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
