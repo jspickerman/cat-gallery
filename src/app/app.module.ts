@@ -12,7 +12,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { catGalleryReducers } from './state/cat-gallery.reducers';
 import {CatGalleryEffects} from './state/cat-gallery.effects';
 import { HttpClientModule } from '@angular/common/http';
-import { CatGalleryFiltersComponent } from './cat-gallery/cat-gallery-filters/cat-gallery-filters.component';
 import { CatGalleryFilterComponent } from './cat-gallery/cat-gallery-filter.component';
 
 @NgModule({
