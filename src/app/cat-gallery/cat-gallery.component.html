@@ -3,7 +3,9 @@
     <ng-container *ngIf="filters$ | async as filters">
         <!-- <app-cat-gallery-filters [filters]="filters"></app-cat-gallery-filters> -->
       <div>
-        <app-cat-gallery-filter *ngFor="let filter of filters" [filter]="filter"></app-cat-gallery-filter>
+        <div class="mx-1" *ngFor="let filter of filters">
+          <app-cat-gallery-filter [filter]="filter"></app-cat-gallery-filter>
+        </div>
       </div>
     </ng-container>
     <div class="button-row">
