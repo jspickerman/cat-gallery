@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { CatGalleryState, GalleryImageFilter } from '../../state/cat-gallery.state';
+import { GalleryImageFilter } from '../../state/cat-gallery.state';
 
 @Component({
   selector: 'app-cat-gallery-filters',
