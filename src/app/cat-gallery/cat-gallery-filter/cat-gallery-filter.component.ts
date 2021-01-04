@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { CatGalleryState, GalleryImageFilter } from '../../../state/cat-gallery.state';
-import * as CatGalleryActions from '../../../state/cat-gallery.actions';
+import { CatGalleryState, GalleryImageFilter } from '../../state/cat-gallery.state';
+import * as CatGalleryActions from '../../state/cat-gallery.actions';
 
 
 @Component({
