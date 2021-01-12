@@ -11,27 +11,25 @@ const initialState: CatImageData = {
 export const imageReducers = createReducer(
   initialState,
   on(CatGalleryActions.GetImages, (state, {limit}) => {
-    const imageData = {
+    console.log('get images reducer!');
+    return {
       pending: true,
       error: '',
       images: []
     }
-    return imageData;
   }),
   on(CatGalleryActions.ImagesLoaded, (state, {imageResponse}) => {
-    const imageData = {
+    return {
       pending: false,
       error: '',
       images: imageResponse
     };
-    return imageData;
   }),
   on(CatGalleryActions.ImagesAdded, (state, {imageResponse}) => {
-    const imageData = {
+    return {
       pending: false,
       error: '',
       images: [...state.images, ...imageResponse]
-    };
-    return imageData;
+    }
   })
 );
