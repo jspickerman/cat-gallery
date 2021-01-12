@@ -13,10 +13,12 @@ import { catGalleryReducers } from './state/cat-gallery.reducers';
 import {CatGalleryEffects} from './state/cat-gallery.effects';
 import { HttpClientModule } from '@angular/common/http';
 import { CatGalleryFilterComponent } from './cat-gallery/cat-gallery-filter/cat-gallery-filter.component';
+import { filterReducers } from './state/filters.reducers';
+import { imageReducers } from './state/images.reducers';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpClientModule, 
-    StoreModule.forRoot({'catgallery': catGalleryReducers}), 
+    StoreModule.forRoot({images: imageReducers, filters: filterReducers}), 
     EffectsModule.forRoot([CatGalleryEffects])],
   declarations: [ AppComponent, HelloComponent, CatGalleryComponent, CatGalleryItemComponent, CatGalleryFilterComponent ],
   bootstrap:    [ AppComponent ],

@@ -8,7 +8,7 @@ const initialState: CatImageData = {
   images: []
 }
 
-export const catGalleryReducers = createReducer(
+export const imageReducers = createReducer(
   initialCatGalleryState,
   on(CatGalleryActions.GetImages, (state, {limit}) => {
     const imageData = {

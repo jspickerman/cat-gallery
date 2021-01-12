@@ -8,7 +8,7 @@ const initialState: GalleryImageFilter[] = [
     { imageType: IMAGE_TYPE.PNG, selected: false }
   ];
 
-export const catGalleryReducers = createReducer(
+export const filterReducers = createReducer(
   initialCatGalleryState,
   on(CatGalleryActions.ToggleFilter, (state, {filter, selected}) => {
     const newFilter = {...filter, selected};
