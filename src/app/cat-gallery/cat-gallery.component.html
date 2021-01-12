@@ -1,6 +1,7 @@
 <div>
   <div class="toolbar">
     <div *ngIf="filters$ | async as filters" class="button-group">
+      <span>yo!</span>
       <span>{{filters | json}}</span>
       <div *ngFor="let filter of filters">
         <app-cat-gallery-filter [filter]="filter"></app-cat-gallery-filter>
