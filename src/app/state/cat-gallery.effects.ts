@@ -12,6 +12,7 @@ import {selectFilters} from "./cat-gallery.selectors";
 export class CatGalleryEffects {
 
   private getSelectedImageTypes(filters: GalleryImageFilter[]): string {
+    console.log('filters: ', filters);
     return filters.reduce((imageTypes, currentFilter, index, array) => {
       if (currentFilter.selected) {
         if (index !== 0 && index + 1 <= array.length) {
