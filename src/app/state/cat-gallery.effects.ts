@@ -5,8 +5,8 @@ import { EMPTY } from "rxjs";
 import { catchError, map, mergeMap, withLatestFrom } from "rxjs/operators";
 import { CatImageService } from "../cat-gallery/cat-image.service";
 import * as CatGalleryActions from "./cat-gallery.actions";
-import { filters } from "./cat-gallery.selectors";
 import { CatGalleryState, GalleryImageFilter } from "./cat-gallery.state";
+import {selectFilters} from "./cat-gallery.selectors";
 
 @Injectable()
 export class CatGalleryEffects {
@@ -25,7 +25,7 @@ export class CatGalleryEffects {
 
   public loadImages$ = createEffect(() => this.actions$.pipe(
     ofType(CatGalleryActions.GetImages),
-    withLatestFrom(this.store.select(filters)),
+    withLatestFrom(this.store.select(selectFilters)),
     mergeMap(([action, filters]) => this.catImageService.getImages(this.getSelectedImageTypes(filters), action.limit)
       .pipe(
         map(response => CatGalleryActions.ImagesLoaded({imageResponse: response})),
@@ -36,7 +36,7 @@ export class CatGalleryEffects {
 
   public addImages$ = createEffect(() => this.actions$.pipe(
     ofType(CatGalleryActions.AddImages),
-    withLatestFrom(this.store.select(filters)),
+    withLatestFrom(this.store.select(selectFilters)),
     mergeMap(([action, filters]) => this.catImageService.getImages(this.getSelectedImageTypes(filters), action.limit)
       .pipe(
         map(response => CatGalleryActions.ImagesAdded({imageResponse: response})),

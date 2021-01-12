@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { CatGalleryState } from '../state/cat-gallery.state';
 import * as CatGalleryActions from '../state/cat-gallery.actions'
 import { filteredImages, selectFilters } from '../state/cat-gallery.selectors';
@@ -13,7 +13,7 @@ export class CatGalleryComponent implements OnInit {
 
   DEFAULT_LIMIT: string = "25";
 
-  images$ = this.store.select(filteredImages);
+  images$ = this.store.pipe(select(filteredImages));
   filters$ = this.store.select(selectFilters);
 
   constructor(private store: Store<CatGalleryState>) { }

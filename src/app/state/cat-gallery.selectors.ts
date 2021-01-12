@@ -3,17 +3,20 @@ import { CatGalleryState, GalleryImageFilter } from "./cat-gallery.state";
 
 export const selectCatGalleryState = createFeatureSelector<CatGalleryState>('catgallery')
 
-export const selectFilters = createSelector(
-  selectCatGalleryState,
-  (state: CatGalleryState) => {
-    return state.imageFilters;
-  }
-)
+// export const selectFilters = createSelector(
+//   selectCatGalleryState,
+//   (state: CatGalleryState) => {
+//     return state.imageFilters;
+//   }
+// )
 
-// export const filters = createSelector(
-//   (state: CatGalleryState) => state.imageFilters,
-//   (filters: GalleryImageFilter[]) => filters
-// );
+export const selectFilters = createSelector(
+  (state: CatGalleryState) => {
+    console.log(state);
+    return state.imageFilters;
+  },
+  (filters: GalleryImageFilter[]) => filters
+);
 
 export const filteredImages = createSelector(
   selectCatGalleryState,
