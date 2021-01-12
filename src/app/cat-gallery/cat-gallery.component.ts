@@ -19,7 +19,7 @@ export class CatGalleryComponent implements OnInit {
   constructor(private store: Store<CatGalleryState>) { }
 
   ngOnInit(): void {
-    this.loadImages();
+    // this.loadImages();
   }
 
   loadImages(): void {
