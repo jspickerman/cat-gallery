@@ -3,7 +3,7 @@ import { CatGalleryState, GalleryImageFilter } from "./cat-gallery.state";
 
 export const selectCatGalleryState = createFeatureSelector<CatGalleryState>('catgallery')
 
-export const filters = createSelector(
+export const selectFilters = createSelector(
   selectCatGalleryState,
   (state: CatGalleryState) => {
     return state.imageFilters;
