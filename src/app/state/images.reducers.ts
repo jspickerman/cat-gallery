@@ -9,14 +9,14 @@ const initialState: CatImageData = {
 }
 
 export const imageReducers = createReducer(
-  initialCatGalleryState,
+  initialState,
   on(CatGalleryActions.GetImages, (state, {limit}) => {
     const imageData = {
       pending: true,
       error: '',
       images: []
     }
-    return {...state, imageData};
+    return imageData;
   }),
   on(CatGalleryActions.ImagesLoaded, (state, {imageResponse}) => {
     const imageData = {
@@ -24,14 +24,14 @@ export const imageReducers = createReducer(
       error: '',
       images: imageResponse
     };
-    return {...state, imageData}
+    return imageData;
   }),
   on(CatGalleryActions.ImagesAdded, (state, {imageResponse}) => {
     const imageData = {
       pending: false,
       error: '',
-      images: [...state.imageData.images, ...imageResponse]
+      images: [...state.images, ...imageResponse]
     };
-    return {...state, imageData}
+    return imageData;
   })
 );

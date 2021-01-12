@@ -9,10 +9,10 @@ const initialState: GalleryImageFilter[] = [
   ];
 
 export const filterReducers = createReducer(
-  initialCatGalleryState,
+  initialState,
   on(CatGalleryActions.ToggleFilter, (state, {filter, selected}) => {
     const newFilter = {...filter, selected};
-    const imageFilters = state.imageFilters.map(currentFilter => currentFilter.imageType === newFilter.imageType ? newFilter : currentFilter);
-    return {...state, imageFilters};
+    const imageFilters = state.map(currentFilter => currentFilter.imageType === newFilter.imageType ? newFilter : currentFilter);
+    return imageFilters;
   })
 );
