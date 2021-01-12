@@ -14,7 +14,7 @@ export class CatGalleryComponent implements OnInit {
   DEFAULT_LIMIT: string = "25";
 
   images$ = this.store.pipe(select(selectImageData));
-  filters$ = this.store.pipe(select(selectFilters)).subscribe(data => console.log(data));
+  filters$ = this.store.pipe(select(selectFilters));
 
   constructor(private store: Store<CatGalleryState>) { }
 
