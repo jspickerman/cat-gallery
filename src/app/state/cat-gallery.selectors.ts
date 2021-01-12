@@ -1,7 +1,7 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { CatGalleryState, GalleryImageFilter } from "./cat-gallery.state";
+import { CatGalleryState, CatImageData,  GalleryImageFilter } from "./cat-gallery.state";
 
-export const selectCatGalleryState = createFeatureSelector<CatGalleryState>('catgallery')
+// export const selectCatGalleryState = createFeatureSelector<CatGalleryState>('catgallery')
 
 // export const selectFilters = createSelector(
 //   selectCatGalleryState,
@@ -18,14 +18,34 @@ export const selectFilters = createSelector(
   (filters: GalleryImageFilter[]) => filters
 );
 
-export const filteredImages = createSelector(
-  selectCatGalleryState,
+export const selectImageData = createSelector(
   (state: CatGalleryState) => {
-    const selectedFilters = state.imageFilters.filter(currentFilter => currentFilter.selected);
-    const filteredImages = state.imageData.images.filter((currentImage) => {
+    return state.imageData;
+  },
+  (imageData: CatImageData) => imageData
+);
+
+// export const filteredImages = createSelector(
+//   selectCatGalleryState,
+//   (state: CatGalleryState) => {
+//     const selectedFilters = state.imageFilters.filter(currentFilter => currentFilter.selected);
+//     const filteredImages = state.imageData.images.filter((currentImage) => {
+//       const imageExtension = currentImage.url.substring(currentImage.url.length - 3);
+//       return selectedFilters.find(filter => filter.imageType === imageExtension);
+//     });
+//     return {...state, images: filteredImages};
+//   }
+// )
+
+export const selectFilteredImages = createSelector(
+  selectFilters,
+  selectImageData,
+  (filters: GalleryImageFilter[], imageData: CatImageData) => {
+    const selectedFilters = filters.filter(currentFilter => currentFilter.selected);
+    const images = imageData.images.filter((currentImage) => {
       const imageExtension = currentImage.url.substring(currentImage.url.length - 3);
       return selectedFilters.find(filter => filter.imageType === imageExtension);
     });
-    return {...state, images: filteredImages};
+    return {...imageData, images};
   }
 )
