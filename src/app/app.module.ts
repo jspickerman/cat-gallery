@@ -15,7 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { CatGalleryFilterComponent } from './cat-gallery/cat-gallery-filter/cat-gallery-filter.component';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, HttpClientModule, StoreModule.forRoot({'catgallery': catGalleryReducers}), EffectsModule.forRoot([CatGalleryEffects])],
+  imports: [BrowserModule, FormsModule, HttpClientModule, 
+    StoreModule.forRoot({'catgallery': catGalleryReducers}), 
+    EffectsModule.forRoot([CatGalleryEffects])],
   declarations: [ AppComponent, HelloComponent, CatGalleryComponent, CatGalleryItemComponent, CatGalleryFilterComponent ],
   bootstrap:    [ AppComponent ],
   providers: [CatImageService]
