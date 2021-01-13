@@ -7,7 +7,7 @@ const initialState: CatBreedFilter[] = [];
 export const breedFilterReducers = createReducer(
   initialState,
   on(CatGalleryActions.ImagesLoaded,(state, {imageResponse}) => {
-    console.log('yeet!');
+    console.log(imageResponse);
     return [...state];
   })
 );
