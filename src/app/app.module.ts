@@ -16,12 +16,14 @@ import { filterReducers } from './state/filters.reducers';
 import { imageReducers } from './state/images.reducers';
 import { catGalleryReducers } from './state/cat-gallery.reducers';
 import { CatGalleryState } from './state/cat-gallery.state';
+import { breedFilterReducers } from './state/breed-filters.reducers';
 
-// const reducerMap: ActionReducerMap<CatGalleryState> = {imageData: catGalleryReducers, imageFilters: catGalleryReducers};
+const reducerMap: ActionReducerMap<CatGalleryState> = {imageData: imageReducers, imageFilters: filterReducers, breedFilters: breedFilterReducers};
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpClientModule, 
-    StoreModule.forRoot({imageData: catGalleryReducers, imageFilters: catGalleryReducers}), 
+    // StoreModule.forRoot({imageData: catGalleryReducers, imageFilters: catGalleryReducers}), 
+    StoreModule.forRoot(reducerMap),
     EffectsModule.forRoot([CatGalleryEffects])],
   declarations: [ AppComponent, HelloComponent, CatGalleryComponent, CatGalleryItemComponent, CatGalleryFilterComponent ],
   bootstrap:    [ AppComponent ],

@@ -31,6 +31,7 @@ export enum IMAGE_TYPE {
 export interface CatGalleryState {
   imageFilters: GalleryImageFilter[];
   imageData: CatImageData;
+  breedFilters: CatBreedFilter[];
 }
 
 export const initialCatGalleryState: CatGalleryState = {
@@ -43,5 +44,6 @@ export const initialCatGalleryState: CatGalleryState = {
     pending: false,
     error: "",
     images: []
-  }
+  },
+  breedFilters: []
 };
