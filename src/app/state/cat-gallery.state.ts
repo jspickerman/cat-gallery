@@ -17,6 +17,11 @@ export interface GalleryImageFilter {
   selected: boolean;
 }
 
+export interface CatBreedFilter {
+  breed: string;
+  selected: boolean;
+}
+
 export enum IMAGE_TYPE {
   GIF = "gif",
   PNG = "png",

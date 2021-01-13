@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { CatImageData, initialCatGalleryState } from "./cat-gallery.state";
+import { CatImageData } from "./cat-gallery.state";
 import * as CatGalleryActions from "./cat-gallery.actions";
 
 const initialState: CatImageData = {
@@ -11,7 +11,6 @@ const initialState: CatImageData = {
 export const imageReducers = createReducer(
   initialState,
   on(CatGalleryActions.GetImages, (state, {limit}) => {
-    console.log('get images reducer!');
     return {
       pending: true,
       error: '',

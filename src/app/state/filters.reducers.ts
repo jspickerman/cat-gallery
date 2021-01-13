@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { CatImageData, GalleryImageFilter, IMAGE_TYPE, initialCatGalleryState } from "./cat-gallery.state";
+import { GalleryImageFilter, IMAGE_TYPE } from "./cat-gallery.state";
 import * as CatGalleryActions from "./cat-gallery.actions";
 
 const initialState: GalleryImageFilter[] = [
@@ -12,7 +12,6 @@ export const filterReducers = createReducer(
   initialState,
   on(CatGalleryActions.ToggleFilter, (state, {filter, selected}) => {
     const newFilter = {...filter, selected};
-    const imageFilters = state.map(currentFilter => currentFilter.imageType === newFilter.imageType ? newFilter : currentFilter);
-    return imageFilters;
+    return state.map(currentFilter => currentFilter.imageType === newFilter.imageType ? newFilter : currentFilter);
   })
 );

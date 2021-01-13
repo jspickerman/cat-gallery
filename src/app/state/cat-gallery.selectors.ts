@@ -1,4 +1,4 @@
-import { createFeatureSelector, createSelector } from "@ngrx/store";
+import { createSelector } from "@ngrx/store";
 import { CatGalleryState, CatImageData,  GalleryImageFilter } from "./cat-gallery.state";
 
 // export const selectCatGalleryState = createFeatureSelector<CatGalleryState>('catgallery')
@@ -12,11 +12,11 @@ import { CatGalleryState, CatImageData,  GalleryImageFilter } from "./cat-galler
 
 export const selectFilters = createSelector(
   (state: CatGalleryState) => {
-    console.log('filter selector!');
-    console.log(state);
     return state.imageFilters;
   },
-  (filters: GalleryImageFilter[]) => filters
+  (filters: GalleryImageFilter[]) => {
+    return filters;
+  }
 );
 
 export const selectImageData = createSelector(
