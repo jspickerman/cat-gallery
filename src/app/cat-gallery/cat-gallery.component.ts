@@ -21,13 +21,6 @@ export class CatGalleryComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadImages();
-    this.images$.pipe(
-      tap((imageData: CatImageData) => {
-        if (imageData.images.length < this.DEFAULT_LIMIT) {
-
-        }
-      })
-    )
   }
 
   loadImages(): void {
