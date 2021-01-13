@@ -15,12 +15,6 @@ export class CatGalleryComponent implements OnInit {
   DEFAULT_LIMIT: number = 25;
 
   images$ = this.store.pipe(select(selectFilteredImages),
-    tap((imageData: CatImageData) => {
-      console.log(imageData);
-      if (imageData.images.length < this.DEFAULT_LIMIT) {
-        console.log('under!');
-      }
-    })
   );
   filters$ = this.store.pipe(select(selectFilters));
 
