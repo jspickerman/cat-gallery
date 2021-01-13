@@ -15,6 +15,6 @@ export class CatImageService {
     const params = new HttpParams().set('mime_types', imageType ? imageType : this.DEFAULT_IMAGE_TYPE)
     .set('limit', limit ? limit : this.DEFAULT_LIMIT);
 
-    return this.httpClient.get<CatImageData[]>(this.IMAGE_ENDPOINT + '?' + params);
+   // return this.httpClient.get<CatImageData[]>(this.IMAGE_ENDPOINT + '?' + params);
   }
 }
