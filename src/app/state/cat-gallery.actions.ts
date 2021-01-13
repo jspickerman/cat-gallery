@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { CatImageData, GalleryImageFilter} from "./cat-gallery.state";
+import { CatImage, CatImageData, GalleryImageFilter} from "./cat-gallery.state";
 
 export const GetImages = createAction(
   '[Cat Gallery] Get Images',
@@ -13,12 +13,12 @@ export const AddImages = createAction(
 
 export const ImagesLoaded = createAction(
   '[Cat Gallery] Images Loaded',
-  props<{imageResponse: CatImageData[]}>()
+  props<{imageResponse: CatImage[]}>()
 );
 
 export const ImagesAdded = createAction(
   '[Cat Gallery] Images Added',
-  props<{imageResponse: CatImageData[]}>()
+  props<{imageResponse: CatImage[]}>()
 );
 
 export const ToggleFilter = createAction(

@@ -2,8 +2,8 @@ export interface CatImage {
   breeds: string[];
   id: string;
   url: string;
-  width: string;
-  height: string;
+  width: number;
+  height: number;
 }
 
 export interface CatImageData {
