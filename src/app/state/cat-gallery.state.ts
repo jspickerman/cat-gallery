@@ -17,11 +17,6 @@ export interface GalleryImageFilter {
   selected: boolean;
 }
 
-export interface CatBreedFilter {
-  breed: string;
-  selected: boolean;
-}
-
 export enum IMAGE_TYPE {
   GIF = "gif",
   PNG = "png",
@@ -31,7 +26,6 @@ export enum IMAGE_TYPE {
 export interface CatGalleryState {
   imageFilters: GalleryImageFilter[];
   imageData: CatImageData;
-  breedFilters: CatBreedFilter[];
 }
 
 export const initialCatGalleryState: CatGalleryState = {
@@ -44,6 +38,5 @@ export const initialCatGalleryState: CatGalleryState = {
     pending: false,
     error: "",
     images: []
-  },
-  breedFilters: []
+  }
 };
