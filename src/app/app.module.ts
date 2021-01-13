@@ -16,9 +16,8 @@ import { filterReducers } from './state/filters.reducers';
 import { imageReducers } from './state/images.reducers';
 import { catGalleryReducers } from './state/cat-gallery.reducers';
 import { CatGalleryState } from './state/cat-gallery.state';
-import { breedFilterReducers } from './state/breed-filters.reducers';
 
-const reducerMap: ActionReducerMap<CatGalleryState> = {imageData: imageReducers, imageFilters: filterReducers, breedFilters: breedFilterReducers};
+const reducerMap: ActionReducerMap<CatGalleryState> = {imageData: imageReducers, imageFilters: filterReducers};
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpClientModule, 

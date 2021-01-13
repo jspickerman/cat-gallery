@@ -26,7 +26,7 @@ export class CatGalleryEffects {
   public loadImages$ = createEffect(() => this.actions$.pipe(
     ofType(CatGalleryActions.GetImages),
     withLatestFrom(this.store.pipe(select(selectFilters))),
-    mergeMap(([action, filters]) => this.catImageService.getImages(this.getSelectedImageTypes(filters), action.limit)
+    mergeMap(([action, filters]) => this.catImageService.getImages(this.getSelectedImageTypes(filters), action.limit.toString())
       .pipe(
         map(response => CatGalleryActions.ImagesLoaded({imageResponse: response})),
         catchError(() => EMPTY)
@@ -37,7 +37,7 @@ export class CatGalleryEffects {
   public addImages$ = createEffect(() => this.actions$.pipe(
     ofType(CatGalleryActions.AddImages),
     withLatestFrom(this.store.pipe(select(selectFilters))),
-    mergeMap(([action, filters]) => this.catImageService.getImages(this.getSelectedImageTypes(filters), action.limit)
+    mergeMap(([action, filters]) => this.catImageService.getImages(this.getSelectedImageTypes(filters), action.limit.toString())
       .pipe(
         map(response => CatGalleryActions.ImagesAdded({imageResponse: response})),
         catchError(() => EMPTY)

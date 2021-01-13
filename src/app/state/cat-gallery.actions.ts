@@ -3,12 +3,12 @@ import { CatImageData, GalleryImageFilter} from "./cat-gallery.state";
 
 export const GetImages = createAction(
   '[Cat Gallery] Get Images',
-  props<{limit: string}>()
+  props<{limit: number}>()
 );
 
 export const AddImages = createAction(
   '[Cat Gallery] Add Images',
-  props<{limit: string}>()
+  props<{limit: number}>()
 );
 
 export const ImagesLoaded = createAction(
