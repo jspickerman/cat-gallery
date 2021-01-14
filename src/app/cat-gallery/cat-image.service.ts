@@ -20,8 +20,7 @@ export class CatImageService {
   // }
 
   public getImages(limit?: string): Observable<CatImage[]> {
-    console.log('get images!');
-    const params = new HttpParams().set('limit', limit ? limit : this.DEFAULT_LIMIT);
+    const params = new HttpParams().set('limit', limit ? limit : this.DEFAULT_LIMIT).set('mime_types', 'gif');
     return this.httpClient.get<CatImage[]>(this.IMAGE_ENDPOINT + '?' + params);
   }
 }

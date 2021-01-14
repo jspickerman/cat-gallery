@@ -3,8 +3,8 @@ import { GalleryImageFilter, IMAGE_ORIENTATION,  IMAGE_TYPE } from "./cat-galler
 import * as CatGalleryActions from "./cat-gallery.actions";
 
 const initialState: GalleryImageFilter[] = [
-    { imageOrientation: IMAGE_ORIENTATION.LANDSCAPE, selected: false },
-    { imageOrientation: IMAGE_ORIENTATION.PORTRAIT, selected: false },
+    { imageOrientation: IMAGE_ORIENTATION.LANDSCAPE, selected: true },
+    { imageOrientation: IMAGE_ORIENTATION.PORTRAIT, selected: true },
   ];
 
 export const filterReducers = createReducer(

@@ -46,12 +46,13 @@ export const selectFilteredImages = createSelector(
     const selectedFilters = filters.filter(currentFilter => currentFilter.selected);
     const images = selectedFilters.reduce((images, filter) => {
       if (filter.imageOrientation === IMAGE_ORIENTATION.PORTRAIT) {
-        images = [...images, imageData.images.filter(image => image.height > image.width)]
+        images = [...images, ...imageData.images.filter(image => image.height > image.width)]
       } else if (filter.imageOrientation === IMAGE_ORIENTATION.LANDSCAPE) {
-        images = [...images, imageData.images.filter(image => image.width > image.height)]
+        images = [...images, ...imageData.images.filter(image => image.width > image.height)]
       }
       return images;
     }, []);
+    console.log(images);
     return {...imageData, images};
   }
 )
