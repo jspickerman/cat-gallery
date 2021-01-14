@@ -12,10 +12,16 @@ export class CatImageService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getImages(imageType?: string, limit?: string): Observable<CatImage[]> {
+  // public getImages(imageType?: string, limit?: string): Observable<CatImage[]> {
+  //   console.log('get images!');
+  //   const params = new HttpParams().set('mime_types', imageType ? imageType : this.DEFAULT_IMAGE_TYPE)
+  //   .set('limit', limit ? limit : this.DEFAULT_LIMIT);
+  //   return this.httpClient.get<CatImage[]>(this.IMAGE_ENDPOINT + '?' + params);
+  // }
+
+  public getImages(limit?: string): Observable<CatImage[]> {
     console.log('get images!');
-    const params = new HttpParams().set('mime_types', imageType ? imageType : this.DEFAULT_IMAGE_TYPE)
-    .set('limit', limit ? limit : this.DEFAULT_LIMIT);
+    const params = new HttpParams().set('limit', limit ? limit : this.DEFAULT_LIMIT);
     return this.httpClient.get<CatImage[]>(this.IMAGE_ENDPOINT + '?' + params);
   }
 }

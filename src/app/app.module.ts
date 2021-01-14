@@ -12,10 +12,9 @@ import { EffectsModule } from '@ngrx/effects';
 import {CatGalleryEffects} from './state/cat-gallery.effects';
 import { HttpClientModule } from '@angular/common/http';
 import { CatGalleryFilterComponent } from './cat-gallery/cat-gallery-filter/cat-gallery-filter.component';
-import { filterReducers } from './state/filters.reducers';
 import { imageReducers } from './state/images.reducers';
-import { catGalleryReducers } from './state/cat-gallery.reducers';
 import { CatGalleryState } from './state/cat-gallery.state';
+import { filterReducers } from './state/filters.new.reducers';
 
 const reducerMap: ActionReducerMap<CatGalleryState> = {imageData: imageReducers, imageFilters: filterReducers};
 
