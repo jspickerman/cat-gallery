@@ -12,18 +12,10 @@ export class CatImageService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getImages(imageType?: string, limit?: string) {
-    console.log('yo!');
+  public getImages(imageType?: string, limit?: string): Observable<CatImage[]> {
+    console.log('get images!');
     const params = new HttpParams().set('mime_types', imageType ? imageType : this.DEFAULT_IMAGE_TYPE)
     .set('limit', limit ? limit : this.DEFAULT_LIMIT);
-    const dummyData: CatImage[] = [  {
-    "breeds": [],
-    "height": 900,
-    "id": "5op",
-    "url": "https://cdn2.thecatapi.com/images/5op.jpg",
-    "width": 600
-  }]
-    return of(dummyData);
-   // return this.httpClient.get<CatImageData[]>(this.IMAGE_ENDPOINT + '?' + params);
+    return this.httpClient.get<CatImage[]>(this.IMAGE_ENDPOINT + '?' + params);
   }
 }

@@ -12,7 +12,6 @@ import { CatGalleryState, CatImageData,  GalleryImageFilter } from "./cat-galler
 
 export const selectFilters = createSelector(
   (state: CatGalleryState) => {
-    console.log('filter state: ', state);
     return state.imageFilters;
   },
   (filters: GalleryImageFilter[]) => {
