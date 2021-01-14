@@ -1,20 +1,11 @@
 import { createSelector } from "@ngrx/store";
-import { CatGalleryState, CatImageData,  GalleryImageFilter, IMAGE_ORIENTATION } from "./cat-gallery.state";
-
-// export const selectCatGalleryState = createFeatureSelector<CatGalleryState>('catgallery')
-
-// export const selectFilters = createSelector(
-//   selectCatGalleryState,
-//   (state: CatGalleryState) => {
-//     return state.imageFilters;
-//   }
-// )
+import { CatGalleryState, CatImageData,  CatGalleryImageFilter, IMAGE_ORIENTATION, CatImage } from "./cat-gallery.state";
 
 export const selectFilters = createSelector(
   (state: CatGalleryState) => {
     return state.imageFilters;
   },
-  (filters: GalleryImageFilter[]) => {
+  (filters: CatGalleryImageFilter[]) => {
     return filters;
   }
 );
@@ -26,25 +17,12 @@ export const selectImageData = createSelector(
   (imageData: CatImageData) => imageData
 );
 
-// export const selectFilteredImages = createSelector(
-//   selectFilters,
-//   selectImageData,
-//   (filters: GalleryImageFilter[], imageData: CatImageData) => {
-//     const selectedFilters = filters.filter(currentFilter => currentFilter.selected);
-//     const images = imageData.images.filter((currentImage) => {
-//       const imageExtension = currentImage.url.substring(currentImage.url.length - 3);
-//       return selectedFilters.find(filter => filter.imageType === imageExtension);
-//     });
-//     return {...imageData, images};
-//   }
-// )
-
 export const selectFilteredImages = createSelector(
   selectFilters,
   selectImageData,
-  (filters: GalleryImageFilter[], imageData: CatImageData) => {
+  (filters: CatGalleryImageFilter[], imageData: CatImageData) => {
     const selectedFilters = filters.filter(currentFilter => currentFilter.selected);
-    const images = selectedFilters.reduce((images, filter) => {
+    const images = selectedFilters.reduce((images: CatImage[], filter: CatGalleryImageFilter) => {
       if (filter.imageOrientation === IMAGE_ORIENTATION.PORTRAIT) {
         images = [...images, ...imageData.images.filter(image => image.height > image.width)]
       } else if (filter.imageOrientation === IMAGE_ORIENTATION.LANDSCAPE) {
@@ -52,7 +30,6 @@ export const selectFilteredImages = createSelector(
       }
       return images;
     }, []);
-    console.log(images);
     return {...imageData, images};
   }
 )

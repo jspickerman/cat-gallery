@@ -14,13 +14,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { CatGalleryFilterComponent } from './cat-gallery/cat-gallery-filter/cat-gallery-filter.component';
 import { imageReducers } from './state/images.reducers';
 import { CatGalleryState } from './state/cat-gallery.state';
-import { filterReducers } from './state/filters.new.reducers';
+import { filterReducers } from './state/filters.reducers';
 
 const reducerMap: ActionReducerMap<CatGalleryState> = {imageData: imageReducers, imageFilters: filterReducers};
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpClientModule, 
-    // StoreModule.forRoot({imageData: catGalleryReducers, imageFilters: catGalleryReducers}), 
     StoreModule.forRoot(reducerMap),
     EffectsModule.forRoot([CatGalleryEffects])],
   declarations: [ AppComponent, HelloComponent, CatGalleryComponent, CatGalleryItemComponent, CatGalleryFilterComponent ],

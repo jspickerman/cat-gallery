@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { CatGalleryState, CatImageData } from '../state/cat-gallery.state';
+import { CatGalleryState } from '../state/cat-gallery.state';
 import * as CatGalleryActions from '../state/cat-gallery.actions'
 import { selectFilteredImages, selectFilters } from '../state/cat-gallery.selectors';
-import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-cat-gallery',
@@ -20,7 +19,6 @@ export class CatGalleryComponent implements OnInit {
   constructor(private store: Store<CatGalleryState>) { }
 
   ngOnInit(): void {
-    console.log('gallery init!');
     this.loadImages();
   }
 
