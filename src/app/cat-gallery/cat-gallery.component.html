@@ -12,19 +12,19 @@
   </div>
 
   <div class="gallery" *ngIf="images$ | async as imageData">
-    <ng-container *ngIf="imageData.error">
+    <ng-container *ngIf="!imageData.pending && imageData.error">
       <div>
         <h4>An error occured! Please refresh and try again.</h4>
       </div>
     </ng-container>
 
-    <ng-container *ngIf="!imageData.error && imageData.images.length > 0">
+    <ng-container *ngIf="!imageData.pending && !imageData.error && imageData.images.length > 0">
       <div *ngFor="let image of imageData.images" class="gallery-item">
         <app-cat-gallery-item [image]="image"></app-cat-gallery-item>
       </div>
     </ng-container>
 
-    <ng-container *ngIf="!imageData.error && imageData.images.length === 0">
+    <ng-container *ngIf="!imageData.pending && !imageData.error && imageData.images.length === 0">
       <div>
         <h4>No images match filters!</h4>
       </div>

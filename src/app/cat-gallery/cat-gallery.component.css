@@ -16,6 +16,8 @@
   grid-template-columns: 25% 25% 25% 25%;
   column-gap: 5px;
   justify-content: center;
+
+  min-height: 350px
 }
 
 .gallery-item {
