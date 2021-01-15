@@ -1,3 +1,5 @@
-<div class="image-wrapper">
+<div *ngIf="loading" class="loading-skeleton"></div>
+
+<div *ngIf="!loading" class="image-wrapper">
   <img class="gallery-image" src="{{image.url}}" alt="cat">
 </div>

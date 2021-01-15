@@ -11,13 +11,24 @@
   padding: .5em .25em;
 }
 
+.placeholder {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .gallery {
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
   column-gap: 5px;
   justify-content: center;
 
-  min-height: 350px
+  min-height: 350px;
 }
 
 .gallery-item {
