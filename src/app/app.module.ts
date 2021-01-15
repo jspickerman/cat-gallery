@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
 import { CatGalleryComponent } from './cat-gallery/cat-gallery.component';
 import { CatImageService } from './cat-gallery/cat-image.service';
 import { CatGalleryItemComponent } from './cat-gallery/cat-gallery-item/cat-gallery-item.component';
@@ -12,17 +11,24 @@ import { EffectsModule } from '@ngrx/effects';
 import {CatGalleryEffects} from './state/cat-gallery.effects';
 import { HttpClientModule } from '@angular/common/http';
 import { CatGalleryFilterComponent } from './cat-gallery/cat-gallery-filter/cat-gallery-filter.component';
-import { imageReducers } from './state/images.reducers';
 import { CatGalleryState } from './state/cat-gallery.state';
-import { filterReducers } from './state/filters.reducers';
+import { filterReducers } from './state/cat-gallery-filters.reducers';
+import { imageReducers } from './state/cat-gallery-images.reducers';
 
-const reducerMap: ActionReducerMap<CatGalleryState> = {imageData: imageReducers, imageFilters: filterReducers};
+const catGalleryReducerMap: ActionReducerMap<CatGalleryState> = {
+  imageData: imageReducers, 
+  imageFilters: filterReducers
+};
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, HttpClientModule, 
-    StoreModule.forRoot(reducerMap),
-    EffectsModule.forRoot([CatGalleryEffects])],
-  declarations: [ AppComponent, HelloComponent, CatGalleryComponent, CatGalleryItemComponent, CatGalleryFilterComponent ],
+  imports: [
+    BrowserModule, 
+    FormsModule, 
+    HttpClientModule, 
+    StoreModule.forRoot(catGalleryReducerMap),
+    EffectsModule.forRoot([CatGalleryEffects])
+  ],
+  declarations: [ AppComponent, CatGalleryComponent, CatGalleryItemComponent, CatGalleryFilterComponent ],
   bootstrap:    [ AppComponent ],
   providers: [CatImageService]
 })
