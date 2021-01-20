@@ -12,14 +12,14 @@ export interface CatImageData {
   images: CatImage[];
 }
 
-export interface CatGalleryImageFilter {
-  imageOrientation: IMAGE_ORIENTATION;
-  selected: boolean;
-}
-
 export enum IMAGE_ORIENTATION {
   PORTRAIT = 'portrait',
   LANDSCAPE = 'landscape'
+}
+
+export interface CatGalleryImageFilter {
+  imageOrientation: IMAGE_ORIENTATION;
+  selected: boolean;
 }
 
 export interface CatGalleryState {

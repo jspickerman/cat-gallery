@@ -7,20 +7,12 @@ import { CatImage, CatImageData } from '../state/cat-gallery.state';
 @Injectable()
 export class CatImageService {
   IMAGE_ENDPOINT: string = 'https://api.thecatapi.com/v1/images/search';
-  DEFAULT_IMAGE_TYPE: string = 'image';
-  DEFAULT_LIMIT: string = "1";
+  DEFAULT_IMAGE_TYPE: string = 'gif';
 
   constructor(private httpClient: HttpClient) { }
 
-  // public getImages(imageType?: string, limit?: string): Observable<CatImage[]> {
-  //   console.log('get images!');
-  //   const params = new HttpParams().set('mime_types', imageType ? imageType : this.DEFAULT_IMAGE_TYPE)
-  //   .set('limit', limit ? limit : this.DEFAULT_LIMIT);
-  //   return this.httpClient.get<CatImage[]>(this.IMAGE_ENDPOINT + '?' + params);
-  // }
-
-  public getImages(limit?: string): Observable<CatImage[]> {
-    const params = new HttpParams().set('limit', limit ? limit : this.DEFAULT_LIMIT).set('mime_types', 'gif');
+  public getImages(limit: string): Observable<CatImage[]> {
+    const params = new HttpParams().set('limit', limit).set('mime_types', this.DEFAULT_IMAGE_TYPE);
     return this.httpClient.get<CatImage[]>(this.IMAGE_ENDPOINT + '?' + params);
   }
 }
