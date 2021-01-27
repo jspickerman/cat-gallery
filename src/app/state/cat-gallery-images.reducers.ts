@@ -14,9 +14,8 @@ export const imageReducers = createReducer(
     const result = {
       ...state,
       pending: true,
-      images: new Array(limit).fill({})
+      images: []
     };
-    console.log(result);
     return result;
   }),
   on(CatGalleryActions.ImagesLoaded, (state, {imageResponse}) => {
