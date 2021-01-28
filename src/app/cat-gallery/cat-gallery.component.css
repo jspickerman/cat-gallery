@@ -28,6 +28,7 @@
   justify-content: center;
 
   min-height: 350px;
+  padding: .5em;
 }
 
 .gallery-item {
