@@ -8,12 +8,12 @@ body, p, span, h1, h2, h3, h4, h5 {
 }
 
 .btn {
-  font-size: 16px;
-  background-color: #fff;
-  color: #713e8a;
   border: 1px solid #713e8a;
-
   border-radius: 25px;
+  font-size: 16px;
+  
+  color: #713e8a;
+  background-color: #fff;
   padding: .5em 1em;
   outline: none;
 }
