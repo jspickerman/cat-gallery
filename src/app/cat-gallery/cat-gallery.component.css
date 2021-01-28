@@ -10,6 +10,21 @@
   padding: .5em .25em;
 }
 
+.gallery {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  column-gap: 5px;
+  justify-content: center;
+
+  min-height: 350px;
+  width: 100%;
+  padding: .5em;
+}
+
+.gallery-item {
+  margin: .5em;
+}
+
 .placeholder {
   grid-column-start: 2;
   grid-column-end: 4;
@@ -21,18 +36,8 @@
   align-items: center;
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
-  column-gap: 5px;
-  justify-content: center;
-
-  min-height: 350px;
-  padding: .5em;
-}
-
-.gallery-item {
-  margin: .5em;
+.placeholder-icon {
+  font-size: 3.5em;
 }
 
 .button-group {
