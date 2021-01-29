@@ -3,7 +3,6 @@ import { select, Store } from '@ngrx/store';
 import { CatGalleryState } from '../state/cat-gallery.state';
 import * as CatGalleryActions from '../state/cat-gallery.actions'
 import { selectFilteredImages, selectFilters } from '../state/cat-gallery.selectors';
-import { faCat, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-cat-gallery',
@@ -13,8 +12,6 @@ import { faCat, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 export class CatGalleryComponent implements OnInit {
 
   DEFAULT_LIMIT: number = 25;
-  faCat = faCat;
-  faExclamationCircle = faExclamationCircle;
 
   imagesData$ = this.store.pipe(select(selectFilteredImages));
   filters$ = this.store.pipe(select(selectFilters));

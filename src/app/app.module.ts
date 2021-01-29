@@ -14,7 +14,6 @@ import { CatGalleryFilterComponent } from './cat-gallery/cat-gallery-filter/cat-
 import { CatGalleryState } from './state/cat-gallery.state';
 import { filterReducers } from './state/cat-gallery-filters.reducers';
 import { imageReducers } from './state/cat-gallery-images.reducers';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const catGalleryReducerMap: ActionReducerMap<CatGalleryState> = {
   imageData: imageReducers, 
@@ -26,7 +25,6 @@ const catGalleryReducerMap: ActionReducerMap<CatGalleryState> = {
     BrowserModule, 
     FormsModule, 
     HttpClientModule, 
-    FontAwesomeModule,
     StoreModule.forRoot(catGalleryReducerMap),
     EffectsModule.forRoot([CatGalleryEffects])
   ],
